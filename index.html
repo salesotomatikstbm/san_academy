@@ -1,0 +1,1040 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Otomatiks - Coding Summer Camp</title>
+    <meta name="author" content="Vecuro">
+    <meta name="description" content="Otomatiks - Coding Summer Camp">
+    <meta name="keywords" content="Otomatiks - Coding Summer Camp">
+    <meta name="robots" content="INDEX,FOLLOW">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Favicons - Place favicon.ico in the root directory -->
+    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
+
+    <!--==============================
+	  Google Fonts
+	============================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Jost:wght@400;500&display=swap"
+        rel="stylesheet">
+
+
+    <!--==============================
+	    All CSS File
+	============================== -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="assets/css/app.min.css"> -->
+    <!-- Fontawesome Icon -->
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+    <!-- Layerslider -->
+    <link rel="stylesheet" href="assets/css/layerslider.min.css">
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="assets/css/magnific-popup.min.css">
+    <!-- Slick Slider -->
+    <link rel="stylesheet" href="assets/css/slick.min.css">
+    <!-- Theme Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+
+
+
+    <style>
+
+
+#enquiryPopup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);  /* Dark transparent background */
+            z-index: 9999;  /* Highest z-index */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: auto;  /* Add scroll if needed */
+            padding: 20px;   /* Space on sides for small devices */
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 500px;  /* Center and limit max width */
+            max-height: 90vh;  /* Limit height to viewport height */
+            overflow-y: auto;  /* Scroll content if it overflows */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .required {
+            color: red;
+        }
+
+        .close-btn {
+            background-color: transparent;
+            border: none;
+            font-size: 24px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #333;
+            cursor: pointer;
+        }
+
+
+
+
+
+
+        .video-box {
+    position: relative;
+    height: 100vh;  /* Set the video to occupy 70% of the viewport height */
+    overflow: hidden;
+    background: #000;  /* Optional for better focus */
+}
+
+.responsive-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;  /* Full width */
+    height: 100%;  /* Full height */
+    object-fit: cover;  /* Maintain aspect ratio, prevent stretching */
+}
+
+/* Media Queries for Responsive Height */
+@media (max-width: 768px) {
+    .video-box {
+        height: 100vh;  /* Increase height for smaller devices */
+    }
+}
+
+@media (max-width: 480px) {
+    .video-box {
+        height: 100vh;  /* Full viewport height for mobile */
+    }
+}
+
+/* Adjust bottom margin on small screens */
+@media (max-width: 768px) {
+    .mobile-video-spacing {
+        margin-bottom: 30px;  /* Control space under the video */
+    }
+}
+
+
+
+
+
+    /* Custom logo size */
+    .logo-left {
+        width: 80px;  /* Control left logo size */
+        height: auto;
+    }
+
+    .logo-right {
+        width: 150px;  /* Control right logo size */
+        height: auto;
+    }
+
+    /* Alignment for the parent wrapper */
+    .header-logo img {
+        display: block;
+    }
+
+    /* Optional: Add padding or margin adjustments for better spacing */
+    .sticky-wrap {
+        padding: 10px 0;  /* Adjust top and bottom padding */
+    }
+    </style>
+</head>
+
+<body>
+
+
+    <!--[if lte IE 9]>
+    	<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+
+
+
+    <!--********************************
+   		Code Start From Here 
+	******************************** -->
+
+    <div id="enquiryPopup">
+        <div class="form-container">
+            <h2>Enquiry Now</h2>
+                <form id="enquiryForm" class="form-style">
+                <div class="mb-3">
+                    <label>Student's Name <span class="required">(Required)</span></label>
+                    <input type="text" name="student_name" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label>Student's Grade <span class="required">(Required)</span></label>
+                    <input type="text" name="student_grade" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label>Parent's Name <span class="required">(Required)</span></label>
+                    <input type="text" name="parent_name" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label>Contact Number <span class="required">(Required)</span></label>
+                    <input type="tel" name="contact_number" class="form-control" pattern="[0-9]{10}" 
+                           title="Please enter a valid 10-digit contact number" required>
+                </div>
+                <button class="btn btn-primary" type="submit">Enquiry Now</button>
+            </form>
+        </div>
+    </div>
+
+
+    <!--==============================
+     Preloader
+    ==============================-->
+    <div class="preloader  ">
+        <button class="vs-btn preloaderCls">Coding Summer Camp </button>
+        <div class="preloader-inner">
+            <div class="loader"></div>
+        </div>
+    </div><!--==============================
+    Mobile Menu
+    ============================== -->
+   
+    <!--==============================
+    Sidemenu
+    ============================== -->
+    <div class="sidemenu-wrapper d-none d-lg-block">
+        <div class="sidemenu-content">
+            <button class="closeButton sideMenuCls"><i class="far fa-times"></i></button>
+            
+            <div class="widget">
+                <div class="widget-about">
+                    <div class="footer-logo"><img src="assets/img/logo.png" alt="Otomatiks"></div>
+                    <p class="mb-0">Join our exciting Coding Summer Camp and experience hands-on learning with fun coding activities for children of all ages!</p>
+                </div>
+            </div>
+    
+            <div class="widget">
+                <h3 class="widget_title">Get In Touch</h3>
+                <div>
+                    <p class="footer-text">Camp Schedule: <span class="time">April 15th – 28th</span></p>
+                    <p class="footer-text">Venue: <span class="time">San Academy, West Tambaram</span></p>
+                    <p class="footer-info"><i class="fal fa-envelope"></i>Email: <a href="mailto:otomatikstambaram@gmail.com">otomatikstambaram@gmail.com</a></p>
+                    <p class="footer-info"><i class="fas fa-mobile-alt"></i>Phone: <a href="tel:+916382547078">+91 63825 47078</a></p>
+                </div>
+            </div>
+    
+        
+        </div>
+    </div>
+    
+    <!--==============================
+    Popup Search Box
+    ============================== -->
+    <div class="popup-search-box d-none d-lg-block  ">
+        <button class="searchClose"><i class="fal fa-times"></i></button>
+        <form action="#">
+            <input type="text" class="border-theme" placeholder="What are you looking for">
+            <button type="submit"><i class="fal fa-search"></i></button>
+        </form>
+    </div>
+    <!--==============================
+        Header Area
+    ==============================-->
+    <header class="vs-header header-layout1">
+        <div class="header-top">
+            <div class="container">
+                <div class="row justify-content-between align-items-center">
+                    <div class="col-auto d-none d-lg-block">
+                        <div class="header-links style-white">
+                            <ul>
+                                <li><a href=""><i class="far fa-user-school"></i>San Academy</a>
+                                </li>
+                                <li><a href="" ></i>Coding Summer camp
+                                       </a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-auto text-center">
+                        <div class="header-links style2 style-white">
+                            <ul>
+                                <li><i class="fas fa-envelope"></i>Email: <a
+                                        href="mailto:otomatikstambaram@gmail.com">otomatikstambaram@gmail.com</a></li>
+                                <li><i class="fas fa-mobile-alt"></i>Phone: <a href="tel:+916382547078">+91 63825 47078</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sticky-wrap">
+            <div class="sticky-active">
+                <div class="container">
+                    <div class="row align-items-center justify-content-between">
+                        
+                        <!-- Left Logo -->
+                        <div class="col-auto">
+                            <div class="header-logo">
+                                <a href="index.html">
+                                    <img src="assets/img/sanlogo.png" alt="logo" class="logo-left">
+                                </a>
+                            </div>
+                        </div>
+        
+                        <!-- Right Logo -->
+                        <div class="col-auto text-end">
+                            <div class="header-logo">
+                                <a href="index.html">
+                                    <img src="assets/img/logo.png" alt="logo" class="logo-right">
+                                </a>
+                            </div>
+                        </div>
+        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--==============================
+      Hero Area
+    ==============================-->
+    <!-- <section class="vs-hero-wrapper  ">
+        <div class="vs-hero-carousel" data-height="770" data-container="1900" data-slidertype="responsive"
+            data-navbuttons="true">
+
+         
+            <div class="ls-slide" data-ls="duration:12000; transition2d:5; kenburnszoom:in; kenburnsscale:1.1;">
+                <img width="1920" height="770" src="assets/img/hero/hero-1-1.jpg" class="ls-bg" alt="bg"
+                    decoding="async">
+                <ls-layer
+                    style="font-size:36px; color:#000; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; border-style:solid; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; width:255px; height:255px; border-width:60px 60px 60px 60px; border-color:#FFD600; border-radius:50% 50% 50% 50%; top:126px; left:740px; z-index:4; -webkit-background-clip:border-box;"
+                    class="ls-l ls-hide-tablet ls-hide-phone ls-text-layer" data-ls="static:forever;">
+                </ls-layer>
+                <div style="font-size:36px; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; width:711px; height:410px; left:312px; top:213px; background-color:#490D59; border-radius:213px 206px 50px 213px; z-index:5; -webkit-background-clip:border-box;"
+                    class="ls-l ls-hide-tablet ls-hide-phone ls-text-layer" data-ls="static:forever;"></div>
+                <div style="font-size:36px; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; opacity:0.9; overflow:visible; width:1200px; height:600px; left:350px; top:76px; background-color:#490D59; border-radius:213px 206px 50px 213px; z-index:5; -webkit-background-clip:border-box;"
+                    class="ls-l ls-hide-desktop ls-hide-phone ls-text-layer" data-ls="static:forever;"></div>
+                <div style="font-size:36px; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; opacity:0.9; overflow:visible; width:1300px; height:700px; left:50%; top:33px; background-color:#490D59; border-radius:213px 206px 50px 213px; z-index:5; -webkit-background-clip:border-box;"
+                    class="ls-l ls-hide-desktop ls-hide-tablet ls-text-layer" data-ls="static:forever;"></div>
+                <h1 style="font-size:60px; stroke:#000; stroke-width:0px; text-align:center; font-style:normal; text-decoration:none; text-transform:none; font-weight:600; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; font-family:'Fredoka', sans-serif; line-height:60px; color:#ffffff; top:284px; left:312px; width:711px; -webkit-background-clip:border-box;"
+                    class="ls-l ls-hide-tablet ls-hide-phone ls-text-layer"
+                    data-ls="offsetxin:-100; delayin:200; easingin:easeOutQuint; offsetxout:-100; easingout:easeOutQuint;">
+                    We Prepare Your
+                </h1>
+                <h1 style="font-size:60px; stroke:#000; stroke-width:0px; text-align:center; font-style:normal; text-decoration:none; text-transform:none; font-weight:600; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; font-family:'Fredoka', sans-serif; line-height:60px; color:#ffffff; top:361px; left:312px; width:711px; -webkit-background-clip:border-box;"
+                    class="ls-l ls-hide-tablet ls-hide-phone ls-text-layer"
+                    data-ls="offsetxin:100; delayin:300; easingin:easeOutQuint; offsetxout:100; easingout:easeOutQuint;">
+                    Child For Life
+                </h1>
+                <p style="font-size:18px; stroke:#000; stroke-width:0px; text-align:center; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; font-family:'Jost', sans-serif; color:#ffffff; width:711px; left:312px; top:438px; -webkit-background-clip:border-box;"
+                    class="ls-l ls-hide-tablet ls-hide-phone ls-text-layer"
+                    data-ls="offsetyin:100; delayin:500; easingin:easeOutQuint; offsetyout:100; easingout:easeOutQuint;">
+                    Montessori Is A Nurturing And Holistic Approach To Learning</p>
+                <div style="font-size:30px; color:#000; stroke:#000; stroke-width:0px; text-align:center; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; left:100%; top:494px; font-family:'Fredoka', sans-serif; width:711px; margin-left:-877px; -webkit-background-clip:border-box;"
+                    class="ls-l ls-hide-tablet ls-hide-phone ls-html-layer"
+                    data-ls="offsetyin:100; delayin:700; easingin:easeOutQuint; offsetyout:100; easingout:easeOutQuint;">
+                    <a href="contact.html" class="vs-btn">Apply Today</a>
+                </div>
+                <h1 style="font-size:90px; stroke:#000; stroke-width:0px; text-align:center; font-style:normal; text-decoration:none; text-transform:none; font-weight:600; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; font-family:'Fredoka', sans-serif; line-height:90px; color:#ffffff; top:141px; left:50%; width:1200px; -webkit-background-clip:border-box;"
+                    class="ls-l ls-hide-desktop ls-hide-phone ls-text-layer"
+                    data-ls="offsetxin:-100; delayin:200; easingin:easeOutQuint; offsetxout:-100; easingout:easeOutQuint;">
+                    We Prepare Your
+                </h1>
+                <h1 style="stroke:#000; stroke-width:0px; text-align:center; font-style:normal; text-decoration:none; text-transform:none; font-weight:600; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; font-family:'Fredoka', sans-serif; line-height:90px; color:#ffffff; top:255px; left:50%; width:1200px; font-size:90px; -webkit-background-clip:border-box;"
+                    class="ls-l ls-hide-desktop ls-hide-phone ls-text-layer"
+                    data-ls="offsetxin:100; delayin:400; easingin:easeOutQuint; offsetxout:-100; easingout:easeOutQuint;">
+                    Child For Life
+                </h1>
+                <p style="stroke:#000; stroke-width:0px; text-align:center; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; font-family:'Jost', sans-serif; color:#ffffff; width:1200px; left:50%; top:384px; font-size:38px; -webkit-background-clip:border-box;"
+                    class="ls-l ls-hide-desktop ls-hide-phone ls-text-layer"
+                    data-ls="offsetyin:100; delayin:500; easingin:easeOutQuint; offsetyout:100; easingout:easeOutQuint;">
+                    Montessori Is A Nurturing And Holistic Approach To Learning</p>
+                <div style="font-size:30px; color:#000; stroke:#000; stroke-width:0px; text-align:center; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; left:50%; top:495px; font-family:'Fredoka', sans-serif; width:1200px; margin-left:0px; -webkit-background-clip:border-box;"
+                    class="ls-l ls-hide-desktop ls-hide-phone ls-html-layer"
+                    data-ls="offsetyin:100; delayin:700; easingin:easeOutQuint; offsetyout:100; easingout:easeOutQuint;">
+                    <a href="contact.html" class="vs-btn">Apply Today</a>
+                </div>
+                <h1 style="font-size:110px; stroke:#000; stroke-width:0px; text-align:center; font-style:normal; text-decoration:none; text-transform:none; font-weight:600; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; font-family:'Fredoka', sans-serif; line-height:110px; color:#ffffff; top:113px; left:50%; width:1200px; -webkit-background-clip:border-box;"
+                    class="ls-l ls-hide-desktop ls-hide-tablet ls-text-layer"
+                    data-ls="offsetxin:-100; delayin:200; easingin:easeOutQuint; offsetxout:-100; easingout:easeOutQuint;">
+                    We Prepare Your
+                </h1>
+                <h1 style="stroke:#000; stroke-width:0px; text-align:center; font-style:normal; text-decoration:none; text-transform:none; font-weight:600; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; font-family:'Fredoka', sans-serif; line-height:110px; color:#ffffff; top:247px; left:50%; width:1200px; font-size:110px; -webkit-background-clip:border-box;"
+                    class="ls-l ls-hide-desktop ls-hide-tablet ls-text-layer"
+                    data-ls="offsetxin:100; delayin:400; easingin:easeOutQuint; offsetxout:-100; easingout:easeOutQuint;">
+                    Child For Life
+                </h1>
+                <div style="font-size:30px; color:#000; stroke:#000; stroke-width:0px; text-align:center; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; left:50%; top:430px; font-family:'Fredoka', sans-serif; width:1200px; margin-left:0px; -webkit-background-clip:border-box;"
+                    class="ls-l ls-hide-desktop ls-hide-tablet ls-html-layer"
+                    data-ls="offsetyin:100; delayin:700; easingin:easeOutQuint; offsetyout:100; easingout:easeOutQuint;">
+                    <a href="contact.html" class="vs-btn">Apply Today</a>
+                </div>
+            </div>
+
+
+
+
+         
+            <div class="ls-slide" data-ls="duration:12000; transition2d:5; kenburnszoom:out; kenburnsscale:1.1;">
+                <img width="1920" height="770" src="assets/img/hero/hero-1-2.jpg" class="ls-bg" alt="bg"
+                    decoding="async">
+                <h1 style="font-size:60px; stroke:#000; stroke-width:0px; text-align:center; font-style:normal; text-decoration:none; text-transform:none; font-weight:600; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; font-family:'Fredoka', sans-serif; line-height:60px; color:#ffffff; top:284px; left:312px; width:711px; -webkit-background-clip:border-box;"
+                    class="ls-l ls-hide-tablet ls-hide-phone ls-text-layer"
+                    data-ls="offsetxin:-100; delayin:200; easingin:easeOutQuint; offsetxout:-100; easingout:easeOutQuint;">
+                    Special Child Session
+                </h1>
+                <h1 style="font-size:60px; stroke:#000; stroke-width:0px; text-align:center; font-style:normal; text-decoration:none; text-transform:none; font-weight:600; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; font-family:'Fredoka', sans-serif; line-height:60px; color:#ffffff; top:361px; left:312px; width:711px; -webkit-background-clip:border-box;"
+                    class="ls-l ls-hide-tablet ls-hide-phone ls-text-layer"
+                    data-ls="offsetxin:100; delayin:300; easingin:easeOutQuint; offsetxout:100; easingout:easeOutQuint;">
+                    For Brain Growth
+                </h1>
+                <p style="font-size:18px; stroke:#000; stroke-width:0px; text-align:center; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; font-family:'Jost', sans-serif; color:#ffffff; width:711px; left:312px; top:438px; -webkit-background-clip:border-box;"
+                    class="ls-l ls-hide-tablet ls-hide-phone ls-text-layer"
+                    data-ls="offsetyin:100; delayin:500; easingin:easeOutQuint; offsetyout:100; easingout:easeOutQuint;">
+                    Montessori Is A Nurturing And Holistic Approach To Learning</p>
+                <div style="font-size:30px; color:#000; stroke:#000; stroke-width:0px; text-align:center; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; left:100%; top:494px; font-family:'Fredoka', sans-serif; width:711px; margin-left:-877px; -webkit-background-clip:border-box;"
+                    class="ls-l ls-hide-tablet ls-hide-phone ls-html-layer"
+                    data-ls="offsetyin:100; delayin:700; easingin:easeOutQuint; offsetyout:100; easingout:easeOutQuint;">
+                    <a href="contact.html" class="vs-btn">Apply Today</a>
+                </div>
+                <h1 style="font-size:90px; stroke:#000; stroke-width:0px; text-align:center; font-style:normal; text-decoration:none; text-transform:none; font-weight:600; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; font-family:'Fredoka', sans-serif; line-height:90px; color:#ffffff; top:141px; left:50%; width:1200px; -webkit-background-clip:border-box;"
+                    class="ls-l ls-hide-desktop ls-hide-phone ls-text-layer"
+                    data-ls="offsetxin:-100; delayin:200; easingin:easeOutQuint; offsetxout:-100; easingout:easeOutQuint;">
+                    Special Child Session
+                </h1>
+                <h1 style="stroke:#000; stroke-width:0px; text-align:center; font-style:normal; text-decoration:none; text-transform:none; font-weight:600; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; font-family:'Fredoka', sans-serif; line-height:90px; color:#ffffff; top:255px; left:50%; width:1200px; font-size:90px; -webkit-background-clip:border-box;"
+                    class="ls-l ls-hide-desktop ls-hide-phone ls-text-layer"
+                    data-ls="offsetxin:100; delayin:400; easingin:easeOutQuint; offsetxout:-100; easingout:easeOutQuint;">
+                    For Brain Growth
+                </h1>
+                <p style="stroke:#000; stroke-width:0px; text-align:center; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; font-family:'Jost', sans-serif; color:#ffffff; width:1200px; left:50%; top:384px; font-size:38px; -webkit-background-clip:border-box;"
+                    class="ls-l ls-hide-desktop ls-hide-phone ls-text-layer"
+                    data-ls="offsetyin:100; delayin:500; easingin:easeOutQuint; offsetyout:100; easingout:easeOutQuint;">
+                    Montessori Is A Nurturing And Holistic Approach To Learning</p>
+                <div style="font-size:30px; color:#000; stroke:#000; stroke-width:0px; text-align:center; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; left:50%; top:495px; font-family:'Fredoka', sans-serif; width:1200px; margin-left:0px; -webkit-background-clip:border-box;"
+                    class="ls-l ls-hide-desktop ls-hide-phone ls-html-layer"
+                    data-ls="offsetyin:100; delayin:700; easingin:easeOutQuint; offsetyout:100; easingout:easeOutQuint;">
+                    <a href="contact.html" class="vs-btn">Apply Today</a>
+                </div>
+                <h1 style="font-size:110px; stroke:#000; stroke-width:0px; text-align:center; font-style:normal; text-decoration:none; text-transform:none; font-weight:600; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; font-family:'Fredoka', sans-serif; line-height:110px; color:#ffffff; top:113px; left:50%; width:1200px; -webkit-background-clip:border-box;"
+                    class="ls-l ls-hide-desktop ls-hide-tablet ls-text-layer"
+                    data-ls="offsetxin:-100; delayin:200; easingin:easeOutQuint; offsetxout:-100; easingout:easeOutQuint;">
+                    Special Child Session
+                </h1>
+                <h1 style="stroke:#000; stroke-width:0px; text-align:center; font-style:normal; text-decoration:none; text-transform:none; font-weight:600; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; font-family:'Fredoka', sans-serif; line-height:110px; color:#ffffff; top:247px; left:50%; width:1200px; font-size:110px; -webkit-background-clip:border-box;"
+                    class="ls-l ls-hide-desktop ls-hide-tablet ls-text-layer"
+                    data-ls="offsetxin:100; delayin:400; easingin:easeOutQuint; offsetxout:-100; easingout:easeOutQuint;">
+                    For Brain Growth
+                </h1>
+                <div style="font-size:30px; color:#000; stroke:#000; stroke-width:0px; text-align:center; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; left:50%; top:430px; font-family:'Fredoka', sans-serif; width:1200px; margin-left:0px; -webkit-background-clip:border-box;"
+                    class="ls-l ls-hide-desktop ls-hide-tablet ls-html-layer"
+                    data-ls="offsetyin:100; delayin:700; easingin:easeOutQuint; offsetyout:100; easingout:easeOutQuint;">
+                    <a href="contact.html" class="vs-btn">Apply Today</a>
+                </div>
+            </div>
+
+
+
+
+
+       
+            <div class="ls-slide" data-ls="duration:12000; transition2d:5; kenburnszoom:in; kenburnsscale:1.1;">
+                <img width="1920" height="770" src="assets/img/hero/hero-1-3.jpg" class="ls-bg" alt="bg"
+                    decoding="async">
+                <h1 style="font-size:60px; stroke:#000; stroke-width:0px; text-align:center; font-style:normal; text-decoration:none; text-transform:none; font-weight:600; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; font-family:'Fredoka', sans-serif; line-height:60px; color:#ffffff; top:284px; left:312px; width:711px; -webkit-background-clip:border-box;"
+                    class="ls-l ls-hide-tablet ls-hide-phone ls-text-layer"
+                    data-ls="offsetxin:-100; delayin:200; easingin:easeOutQuint; offsetxout:-100; easingout:easeOutQuint;">
+                    Best Children Study
+                </h1>
+                <h1 style="font-size:60px; stroke:#000; stroke-width:0px; text-align:center; font-style:normal; text-decoration:none; text-transform:none; font-weight:600; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; font-family:'Fredoka', sans-serif; line-height:60px; color:#ffffff; top:361px; left:312px; width:711px; -webkit-background-clip:border-box;"
+                    class="ls-l ls-hide-tablet ls-hide-phone ls-text-layer"
+                    data-ls="offsetxin:100; delayin:300; easingin:easeOutQuint; offsetxout:100; easingout:easeOutQuint;">
+                    And Furture Care
+                </h1>
+                <p style="font-size:18px; stroke:#000; stroke-width:0px; text-align:center; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; font-family:'Jost', sans-serif; color:#ffffff; width:711px; left:312px; top:438px; -webkit-background-clip:border-box;"
+                    class="ls-l ls-hide-tablet ls-hide-phone ls-text-layer"
+                    data-ls="offsetyin:100; delayin:500; easingin:easeOutQuint; offsetyout:100; easingout:easeOutQuint;">
+                    Montessori Is A Nurturing And Holistic Approach To Learning</p>
+                <div style="font-size:30px; color:#000; stroke:#000; stroke-width:0px; text-align:center; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; left:100%; top:494px; font-family:'Fredoka', sans-serif; width:711px; margin-left:-877px; -webkit-background-clip:border-box;"
+                    class="ls-l ls-hide-tablet ls-hide-phone ls-html-layer"
+                    data-ls="offsetyin:100; delayin:700; easingin:easeOutQuint; offsetyout:100; easingout:easeOutQuint;">
+                    <a href="contact.html" class="vs-btn">Apply Today</a>
+                </div>
+                <h1 style="font-size:90px; stroke:#000; stroke-width:0px; text-align:center; font-style:normal; text-decoration:none; text-transform:none; font-weight:600; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; font-family:'Fredoka', sans-serif; line-height:90px; color:#ffffff; top:141px; left:50%; width:1200px; -webkit-background-clip:border-box;"
+                    class="ls-l ls-hide-desktop ls-hide-phone ls-text-layer"
+                    data-ls="offsetxin:-100; delayin:200; easingin:easeOutQuint; offsetxout:-100; easingout:easeOutQuint;">
+                    Best Children Study
+                </h1>
+                <h1 style="stroke:#000; stroke-width:0px; text-align:center; font-style:normal; text-decoration:none; text-transform:none; font-weight:600; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; font-family:'Fredoka', sans-serif; line-height:90px; color:#ffffff; top:255px; left:50%; width:1200px; font-size:90px; -webkit-background-clip:border-box;"
+                    class="ls-l ls-hide-desktop ls-hide-phone ls-text-layer"
+                    data-ls="offsetxin:100; delayin:400; easingin:easeOutQuint; offsetxout:-100; easingout:easeOutQuint;">
+                    And Furture Care
+                </h1>
+                <p style="stroke:#000; stroke-width:0px; text-align:center; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; font-family:'Jost', sans-serif; color:#ffffff; width:1200px; left:50%; top:384px; font-size:38px; -webkit-background-clip:border-box;"
+                    class="ls-l ls-hide-desktop ls-hide-phone ls-text-layer"
+                    data-ls="offsetyin:100; delayin:500; easingin:easeOutQuint; offsetyout:100; easingout:easeOutQuint;">
+                    Montessori Is A Nurturing And Holistic Approach To Learning</p>
+                <div style="font-size:30px; color:#000; stroke:#000; stroke-width:0px; text-align:center; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; left:50%; top:495px; font-family:'Fredoka', sans-serif; width:1200px; margin-left:0px; -webkit-background-clip:border-box;"
+                    class="ls-l ls-hide-desktop ls-hide-phone ls-html-layer"
+                    data-ls="offsetyin:100; delayin:700; easingin:easeOutQuint; offsetyout:100; easingout:easeOutQuint;">
+                    <a href="contact.html" class="vs-btn">Apply Today</a>
+                </div>
+                <h1 style="font-size:110px; stroke:#000; stroke-width:0px; text-align:center; font-style:normal; text-decoration:none; text-transform:none; font-weight:600; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; font-family:'Fredoka', sans-serif; line-height:110px; color:#ffffff; top:113px; left:50%; width:1200px; -webkit-background-clip:border-box;"
+                    class="ls-l ls-hide-desktop ls-hide-tablet ls-text-layer"
+                    data-ls="offsetxin:-100; delayin:200; easingin:easeOutQuint; offsetxout:-100; easingout:easeOutQuint;">
+                    Best Children Study
+                </h1>
+                <h1 style="stroke:#000; stroke-width:0px; text-align:center; font-style:normal; text-decoration:none; text-transform:none; font-weight:600; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; font-family:'Fredoka', sans-serif; line-height:110px; color:#ffffff; top:247px; left:50%; width:1200px; font-size:110px; -webkit-background-clip:border-box;"
+                    class="ls-l ls-hide-desktop ls-hide-tablet ls-text-layer"
+                    data-ls="offsetxin:100; delayin:400; easingin:easeOutQuint; offsetxout:-100; easingout:easeOutQuint;">
+                    And Furture Care
+                </h1>
+                <div style="font-size:30px; color:#000; stroke:#000; stroke-width:0px; text-align:center; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; left:50%; top:430px; font-family:'Fredoka', sans-serif; width:1200px; margin-left:0px; -webkit-background-clip:border-box;"
+                    class="ls-l ls-hide-desktop ls-hide-tablet ls-html-layer"
+                    data-ls="offsetyin:100; delayin:700; easingin:easeOutQuint; offsetyout:100; easingout:easeOutQuint;">
+                    <a href="contact.html" class="vs-btn">Apply Today</a>
+                </div>
+            </div>
+
+        </div>
+    </section> -->
+    
+    <!--==============================
+   About Area  
+    ==============================-->
+    <section class=" space-extra-bottom">
+        <div class="container">
+            <div class="row gx-70 align-items-center">
+    
+                <div class="col-lg-6">
+                    <div class="video-box">
+                        <div class="vs-circle"></div>
+                        <video autoplay muted loop playsinline class="responsive-video mobile-video-spacing">
+                            <source src="assets/img/san.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+    
+                <div class="col-lg-6 text-center text-lg-start">
+                    <span class="sec-subtitle">Coding Summer Camp 2025</span>
+                    <h2 class="sec-title">Let Your Child Lead the Way in Learning and Fun</h2>
+                    <p class="sec-text pe-xl-5 mb-4 pb-xl-3">
+                        Join our interactive Summer Camp where children explore the exciting world of coding and technology.
+                        From block-based coding to website creation and game development, we transform learning into fun,
+                        hands-on experiences. Watch your child grow as a confident, tech-savvy innovator!
+                    </p>
+                    <div class="row gx-70 justify-content-center justify-content-lg-start text-md-start">
+                        <div class="col-auto">
+                            <div class="vs-media media-style1">
+                                <div class="media-icon"><img src="assets/img/icon/ab-1-1.svg" alt="icon"></div>
+                                <div class="media-body">
+                                    <p class="media-label">4+</p>
+                                    <p class="media-title">Fun-Filled Coding Projects</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="vs-media media-style1">
+                                <div class="media-icon"><img src="assets/img/icon/ab-1-2.svg" alt="icon"></div>
+                                <div class="media-body">
+                                    <p class="media-label">10+</p>
+                                    <p class="media-title">Engaging Sessions</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </section>
+    
+
+
+<!--==============================
+    Gallery Area
+    ==============================-->
+    <section class=" space-top space-extra-bottom">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-6">
+                    <div class="title-area text-center">
+                        <div class="sec-bubble">
+                            <div class="bubble"></div>
+                            <div class="bubble"></div>
+                            <div class="bubble"></div>
+                        </div>
+                        <h2 class="sec-title">Explore Our Photo Gallery!</h2>
+                        <p class="sec-text">Dive into our vibrant collection of moments and memories!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row gx-35 gy-gx filter-active">
+                <div class="col-sm-6 col-lg-4 col-xl-3 filter-item">
+                    <div class="gallery-style1">
+                        <div class="gallery-img">
+                            <img src="assets/img/gallery/gal-1-1.jpg" alt="gallery">
+                            <a href="assets/img/gallery/gal-1-1.jpg" class="gallery-btn popup-image"><i
+                                    class="far fa-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4 col-xl-3 filter-item">
+                    <div class="gallery-style1 radius-2">
+                        <div class="gallery-img">
+                            <img src="assets/img/gallery/gal-1-2.jpg" alt="gallery">
+                            <a href="assets/img/gallery/gal-1-2.jpg" class="gallery-btn popup-image"><i
+                                    class="far fa-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4 col-xl-3 filter-item">
+                    <div class="gallery-style1">
+                        <div class="gallery-img">
+                            <img src="assets/img/gallery/gal-1-3.jpg" alt="gallery">
+                            <a href="assets/img/gallery/gal-1-3.jpg" class="gallery-btn popup-image"><i
+                                    class="far fa-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4 col-xl-3 filter-item">
+                    <div class="gallery-style1">
+                        <div class="gallery-img">
+                            <img src="assets/img/gallery/gal-1-4.jpg" alt="gallery">
+                            <a href="assets/img/gallery/gal-1-4.jpg" class="gallery-btn popup-image"><i
+                                    class="far fa-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4 col-xl-3 filter-item">
+                    <div class="gallery-style1">
+                        <div class="gallery-img">
+                            <img src="assets/img/gallery/gal-1-5.jpg" alt="gallery">
+                            <a href="assets/img/gallery/gal-1-5.jpg" class="gallery-btn popup-image"><i
+                                    class="far fa-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4 col-xl-3 filter-item radius-3">
+                    <div class="gallery-style1">
+                        <div class="gallery-img">
+                            <img src="assets/img/gallery/gal-1-6.jpg" alt="gallery">
+                            <a href="assets/img/gallery/gal-1-6.jpg" class="gallery-btn popup-image"><i
+                                    class="far fa-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--==============================
+   Service Area  
+==============================-->
+<section class="space-extra-bottom">
+    <div class="container">
+        <div class="title-area text-center">
+            <div class="sec-bubble">
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+            </div>
+            <h2 class="sec-title">Enrol Your Child In A Session Now!</h2>
+            <p class="sec-text">Discover fun and interactive learning sessions with block-based coding for beginners and exciting tech projects!</p>
+        </div>
+        <div class="row vs-carousel" data-slide-show="4" data-ml-slide-show="3" data-lg-slide-show="3"
+            data-md-slide-show="2">
+
+            <!-- Block Coding Section -->
+            <div class="service-style1 col-xl-3">
+                <div class="service-body">
+                    <div class="service-img"><a href=""><img src="assets/img/service/sr-1-1.jpg" alt="block coding"></a></div>
+                    <div class="service-content">
+                        <div class="service-icon"><img src="assets/img/icon/sr-1-1.svg" alt="block coding icon"></div>
+                        <h3 class="service-title"><a href="">Block Coding</a></h3>
+                        <p class="service-text">Introduce your child to the basics of block-based coding to spark their interest in programming!</p>
+                        <div class="service-bottom">
+                            <a href="" class="service-btn">Grade 2 - 3</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Development Section -->
+            <div class="service-style1 col-xl-3">
+                <div class="service-body">
+                    <div class="service-img"><a href=""><img src="assets/img/service/sr-1-2.jpg" alt="game development"></a></div>
+                    <div class="service-content">
+                        <div class="service-icon"><img src="assets/img/icon/sr-1-2.svg" alt="game development icon"></div>
+                        <h3 class="service-title"><a href="">Game Development</a></h3>
+                        <p class="service-text">Learn to create engaging 2D games using block-based coding techniques and interactive tools.</p>
+                        <div class="service-bottom">
+                            <a href="" class="service-btn">Grade 4 - 5</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Web Development Section -->
+            <div class="service-style1 col-xl-3">
+                <div class="service-body">
+                    <div class="service-img"><a href=""><img src="assets/img/service/sr-1-3.jpg" alt="web development"></a></div>
+                    <div class="service-content">
+                        <div class="service-icon"><img src="assets/img/icon/sr-1-3.svg" alt="web development icon"></div>
+                        <h3 class="service-title"><a href="">Web Development</a></h3>
+                        <p class="service-text">Build your own websites with block-based web development tools and easy-to-follow projects.</p>
+                        <div class="service-bottom">
+                            <a href="" class="service-btn">Grade 6 - 7</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Python Section -->
+            <div class="service-style1 col-xl-3">
+                <div class="service-body">
+                    <div class="service-img"><a href=""><img src="assets/img/service/sr-1-4.jpg" alt="python"></a></div>
+                    <div class="service-content">
+                        <div class="service-icon"><img src="assets/img/icon/sr-1-4.svg" alt="python icon"></div>
+                        <h3 class="service-title"><a href="">Python</a></h3>
+                        <p class="service-text">Learn Python through hands-on block-based projects and simple AI experiments designed for beginners.</p>
+                        <div class="service-bottom">
+                            <a href="" class="service-btn">Grade 8 - 9</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+    <div data-bg-src="assets/img/bg/bg-h-1-1.jpg"><!--==============================
+  
+    Category Area
+    ==============================-->
+    <section class="space-extra-bottom">
+        <div class="container">
+            <div class="row justify-content-between text-center text-md-start">
+                <div class="col-md-auto">
+                    <div class="title-area">
+                        <span class="sec-subtitle">choose your own grade level</span>
+                        <h2 class="sec-title">Smarty Programs</h2>
+                    </div>
+                </div>
+                <div class="col-md-auto align-self-end">
+                    <div class="sec-btns">
+                        <button class="icon-btn" data-slick-prev=".catslider1"><i class="far fa-arrow-left"></i></button>
+                        <button class="icon-btn" data-slick-next=".catslider1"><i class="far fa-arrow-right"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="row vs-carousel gx-15 catslider1" data-slide-show="5" data-lg-slide-show="4"
+                data-md-slide-show="3" data-sm-slide-show="2" data-xs-slide-show="2">
+    
+                <div class="col-xl-3">
+                    <div class="category-style1">
+                        <div class="category-bg1"></div>
+                        <div class="category-bg2"></div>
+                        <div class="category-bg3"></div>
+                        <div class="category-grade">
+                            <span class="grade-label">Grade</span>
+                            <span class="grade-name">2-3</span>
+                        </div>
+                        <h3 class="category-name h4"><a href="class.html" class="text-inherit">Block Coding</a></h3>
+                        <p class="category-label">Learn and practice block coding.</p>
+                    </div>
+                </div>
+    
+                <div class="col-xl-3">
+                    <div class="category-style1">
+                        <div class="category-bg1"></div>
+                        <div class="category-bg2"></div>
+                        <div class="category-bg3"></div>
+                        <div class="category-grade">
+                            <span class="grade-label">Grade</span>
+                            <span class="grade-name">4-5</span>
+                        </div>
+                        <h3 class="category-name h4"><a href="class.html" class="text-inherit">Create Games</a></h3>
+                        <p class="category-label">Design and build your own games.</p>
+                    </div>
+                </div>
+    
+                <div class="col-xl-3">
+                    <div class="category-style1">
+                        <div class="category-bg1"></div>
+                        <div class="category-bg2"></div>
+                        <div class="category-bg3"></div>
+                        <div class="category-grade">
+                            <span class="grade-label">Grade</span>
+                            <span class="grade-name">6-7</span>
+                        </div>
+                        <h3 class="category-name h4"><a href="class.html" class="text-inherit">Build your own Websites</a></h3>
+                        <p class="category-label">Learn to create your own website.</p>
+                    </div>
+                </div>
+    
+                <div class="col-xl-3">
+                    <div class="category-style1">
+                        <div class="category-bg1"></div>
+                        <div class="category-bg2"></div>
+                        <div class="category-bg3"></div>
+                        <div class="category-grade">
+                            <span class="grade-label">Grade</span>
+                            <span class="grade-name">8-9</span>
+                        </div>
+                        <h3 class="category-name h4"><a href="class.html" class="text-inherit">Billing Software</a></h3>
+                        <p class="category-label">Build your own billing software.</p>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </section>
+    
+    </div><!--==============================
+    Schedule Area
+    ==============================-->
+    <section class="space-extra" data-bg-src="assets/img/bg/table-bg-1-1.jpg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-11 col-lg-10 col-xxl-8">
+                    <div class="table-style1">
+                        <div class="table-icon"><i class="fal fa-alarm-clock"></i></div>
+                        <h2 class="sec-title">Session Times</h2>
+                        <p class="sec-text">We provide learning sessions for students based on their grade levels to ensure an engaging and structured experience.</p>
+                        <div class="table-body">
+                            <div class="tr">
+                                <div class="th">Grades 2-3: Block Coding</div>
+                                <div class="td">8:00am – 10:00am</div>
+                            </div>
+                            <div class="tr">
+                                <div class="th">Grades 4-5: Create a Game</div>
+                                <div class="td">10:30am – 12:00pm</div>
+                            </div>
+                            <div class="tr">
+                                <div class="th">Grades 6-7: Build Your Own Website</div>
+                                <div class="td">12:30pm – 2:00pm</div>
+                            </div>
+                            <div class="tr">
+                                <div class="th">Grades 8-9: Build Billing Software</div>
+                                <div class="td">2:30pm – 4:00pm</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--==============================
+    Classes Area
+    ==============================-->
+    <section class="space">
+        <div class="container">
+            <div class="title-area text-center">
+                <div class="sec-bubble">
+                    <div class="bubble"></div>
+                    <div class="bubble"></div>
+                    <div class="bubble"></div>
+                </div>
+                <h2 class="sec-title">Our Learning Programs</h2>
+                <p class="sec-text">Explore our engaging classes designed for different age groups to enhance creativity, critical thinking, and skills development.</p>
+            </div>
+            <div class="row gx-50 gy-gx">
+                <div class="col-md-6">
+                    <div class="class-style1">
+                        <div class="class-img">
+                            <img src="assets/img/class/cl-1-1.jpg" alt="class">
+                        </div>
+                        <div class="class-content">
+                            <h3 class="class-title">Block Coding</h3>
+                            <p class="class-info">Grade: <span class="info">2 - 3</span></p>
+                            <p class="class-info">Concepts Covered:</p>
+                            <li>Introduction to Coding Blocks</li>
+                            <li>Loops & Conditional Statements</li>
+                            <li>Interactive Animations</li>
+                            <li>Game Design Basics</li>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-md-6">
+                    <div class="class-style1">
+                        <div class="class-img">
+                            <img src="assets/img/class/cl-1-2.jpg" alt="class">
+                        </div>
+                        <div class="class-content">
+                            <h3 class="class-title">Game Development</h3>
+                            <p class="class-info">Grade: <span class="info">4 - 5</span></p>
+                            <p class="class-info">Concepts Covered:</p>
+                            <li>Basics of Game Design</li>
+                            <li>Character Movement</li>
+                            <li>Scoring Mechanism</li>
+                            <li>Game Physics</li>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-md-6">
+                    <div class="class-style1">
+                        <div class="class-img">
+                            <img src="assets/img/class/cl-1-3.jpg" alt="class">
+                        </div>
+                        <div class="class-content">
+                            <h3 class="class-title">Build Your Own Website</h3>
+                            <p class="class-info">Grade: <span class="info">6 - 7</span></p>
+                            <p class="class-info">Concepts Covered:</p>
+                            <li>HTML Basics</li>
+                            <li>CSS Styling</li>
+                            <li>Adding Images & Links</li>
+                            <li>Building a Simple Webpage</li>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-md-6">
+                    <div class="class-style1">
+                        <div class="class-img">
+                            <img src="assets/img/class/cl-1-4.jpg" alt="class">
+                        </div>
+                        <div class="class-content">
+                            <h3 class="class-title">Python Programming</h3>
+                            <p class="class-info">Grade: <span class="info">8 - 9</span></p>
+                            <p class="class-info">Concepts Covered:</p>
+                            <li>Python Basics</li>
+                            <li>Loops & Functions</li>
+                            <li>Data Types & Variables</li>
+                            <li>Simple Python Projects</li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section>
+        <div class="title-area text-center">
+            <div class="sec-bubble">
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+            </div>
+            <h2 class="sec-title">Enquiry Now</h2>
+            <p class="sec-text">Fill out the form below to enquire about our exciting programs and give your child the opportunity to learn, grow, and thrive with us!</p>
+        </div>
+      
+        <form action="#" class="form-style3">
+            <div class="row justify-content-between">
+                <div class="col-md-6 form-group">
+                    <label>Student's Name <span class="required">(Required)</span></label>
+                    <input type="text" name="student_name" required>
+                </div>
+                <div class="col-md-6 form-group">
+                    <label>Student's Grade <span class="required">(Required)</span></label>
+                    <input type="text" name="student_grade" required>
+                </div>
+                <div class="col-md-6 form-group">
+                    <label>Parent's Name <span class="required">(Required)</span></label>
+                    <input type="text" name="parent_name" required>
+                </div>
+                <div class="col-md-6 form-group">
+                    <label>Contact Number <span class="required">(Required)</span></label>
+                    <input type="tel" name="contact_number" pattern="[0-9]{10}" title="Please enter a valid 10-digit contact number" required>
+                </div>
+            
+                <div class="col-auto form-group">
+                    <button class="vs-btn" type="submit">Enquiry Now</button>
+                </div>
+            </div>
+        </form>
+    </section>
+    
+
+
+   
+<!--==============================
+			Footer Area
+	==============================-->
+    <footer class="footer-wrapper footer-layout1" data-bg-src="assets/img/bg/footer-bg-1-1.png">
+    
+        <div class="copyright-wrap">
+            <div class="container">
+                <div class="row flex-row-reverse gy-3 justify-content-between align-items-center">
+                    <div class="col-lg-auto">
+                        <div class="footer-social">
+                            <a href="https://www.facebook.com/otomatiks/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.youtube.com/@otomatiks5317?si=-PY58fVw70xM65D0" target="_blank"><i class="fab fa-youtube"></i></a>
+                            <a href="https://www.instagram.com/otomatiks_robotics?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/company/otomatiksho/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                        
+                    </div>
+                    <div class="col-lg-auto">
+                        <p class="copyright-text ">Copyright &copy; 2025 <a href="https://www.otomatiks.com/" target="_blank">otomatiks</a>. All Rights
+                            Reserved </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer> <!-- Scroll To Top -->
+    <a href="#" class="scrollToTop scroll-btn"><i class="far fa-arrow-up"></i></a>
+
+    <!--********************************
+			Code End  Here 
+	******************************** -->
+
+    <!--==============================
+        All Js File
+    ============================== -->
+    <!-- Jquery -->
+    <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
+    <!-- Slick Slider -->
+    <script src="assets/js/slick.min.js"></script>
+    <!-- <script src="assets/js/app.min.js"></script> -->
+    <!-- Layerslider -->
+    <script src="assets/js/layerslider.utils.js"></script>
+    <script src="assets/js/layerslider.transitions.js"></script>
+    <script src="assets/js/layerslider.kreaturamedia.jquery.js"></script>
+    <!-- jquery ui -->
+    <script src="assets/js/jquery-ui.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- Magnific Popup -->
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <!-- Isotope Filter -->
+    <script src="assets/js/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/js/isotope.pkgd.min.js"></script>
+    <!-- Main Js File -->
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Handle form submission and remove popup after successful submit
+        document.getElementById('enquiryForm').addEventListener('submit', function (e) {
+            e.preventDefault();  // Prevent default form submission
+    
+            // Hide the form popup
+            document.getElementById('enquiryPopup').style.display = 'none';
+    
+            // Display success alert and redirect to the homepage (optional)
+            alert('Thank you for your enquiry!');
+    
+           
+        });
+    </script>
+</body>
+
+</html>
