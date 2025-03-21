@@ -177,10 +177,10 @@
  <!--==============================
      Form
     ==============================-->
-    <!-- <div id="enquiryPopup">
+    <div id="enquiryPopup" style="display: none;">
         <div class="form-container">
             <h2>Enquiry Now</h2>
-                <form id="enquiryForm" class="form-style">
+            <form id="enquiryForm" class="form-style">
                 <div class="mb-3">
                     <label>Student's Name <span class="required">(Required)</span></label>
                     <input type="text" name="student_name" class="form-control" required>
@@ -198,11 +198,13 @@
                     <input type="tel" name="contact_number" class="form-control" pattern="[0-9]{10}" 
                            title="Please enter a valid 10-digit contact number" required>
                 </div>
-                <button class="btn btn-primary" type="submit">Enquiry Now</button>
+                <button class="btn btn-primary" type="submit" id="submitButton">
+                    <span id="buttonText">Enquiry Now</span>
+                    <span id="loadingSpinner" style="display: none;">Loading...</span>
+                </button>
             </form>
         </div>
-    </div> -->
-
+    </div>
 
     
   
@@ -1048,20 +1050,70 @@
     <script src="assets/js/isotope.pkgd.min.js"></script>
     <!-- Main Js File -->
     <script src="assets/js/main.js"></script>
+
+
+
+
     <script>
-        // Handle form submission and remove popup after successful submit
-        document.getElementById('enquiryForm').addEventListener('submit', function (e) {
-            e.preventDefault();  // Prevent default form submission
-    
-            // Hide the form popup
-            document.getElementById('enquiryPopup').style.display = 'none';
-    
-            // Display success alert and redirect to the homepage (optional)
-            alert('Thank you for your enquiry!');
-    
-           
+        // Check if the form has already been submitted
+        if (localStorage.getItem('formSubmitted') !== 'true') {
+            // Show the form popup if it hasn't been submitted yet
+            document.getElementById('enquiryPopup').style.display = 'block';
+        }
+        
+        document.getElementById('enquiryForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+        
+            // Disable the submit button and show loading spinner
+            var submitButton = document.getElementById('submitButton');
+            var buttonText = document.getElementById('buttonText');
+            var loadingSpinner = document.getElementById('loadingSpinner');
+            
+            submitButton.disabled = true; // Disable the button
+            buttonText.style.display = 'none'; // Hide the button text
+            loadingSpinner.style.display = 'inline'; // Show the loading spinner
+        
+            // Get form data
+            var formData = {
+                student_name: document.querySelector('input[name="student_name"]').value,
+                student_grade: document.querySelector('input[name="student_grade"]').value,
+                parent_name: document.querySelector('input[name="parent_name"]').value,
+                contact_number: document.querySelector('input[name="contact_number"]').value
+            };
+        
+            // Send data to Google Apps Script
+            fetch('https://script.google.com/macros/s/AKfycbw6qX1W_zG8EeTIGeFkJPInze9B3DWRoGz4NRArMN-ZyXpgB5oOjc3czAU76dk0KUrC/exec', {
+                method: 'POST',
+                body: JSON.stringify(formData),
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                mode: 'no-cors' // Disable CORS
+            })
+            .then(response => response.text())
+            .then(data => {
+                alert(data); // Show success message
+                document.getElementById('enquiryForm').reset(); // Clear the form
+                document.getElementById('enquiryPopup').style.display = 'none'; // Hide the form container
+        
+                // Set a flag in local storage to indicate the form has been submitted
+                localStorage.setItem('formSubmitted', 'true');
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again.');
+            })
+            .finally(() => {
+                // Re-enable the submit button and hide the loading spinner
+                submitButton.disabled = false;
+                buttonText.style.display = 'inline';
+                loadingSpinner.style.display = 'none';
+            });
         });
-    </script>
+        </script>
+
+
+
 </body>
 
 </html>
